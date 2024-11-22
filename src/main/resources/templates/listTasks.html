@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Tareas</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Listado de Tareas</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-4" th:each="task : ${tasks}">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${task.name}"></h5>
+                        <p class="card-text" th:text="${task.description}"></p>
+                        <p class="card-text" th:text="${task.startDate != null ? #dates.format(task.startDate, 'yyyy-MM-dd') : 'No disponible'}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <a href="/" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+    </div>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

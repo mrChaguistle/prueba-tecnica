@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Crear nueva tarea</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Crear nueva tarea</h1>
+        <div class="row justify-content-center">
+            <form th:action="@{/task/save}" th:object="${task}" method="post" class="col-md-6">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre:</label>
+                    <input type="text" th:field="*{name}" id="name" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Descripción:</label>
+                    <textarea th:field="*{description}" id="description" class="form-control" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="startDate" class="form-label">Fecha de inicio:</label>
+                    <input type="date" th:field="*{startDate}" id="startDate" class="form-control" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>
